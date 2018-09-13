@@ -1,6 +1,6 @@
 ﻿namespace Carrousel1.Services
 {
-    public interface IGetImages
+    public interface IGetImagesService
     {
         void getImages();
         void getImageById(int id);
