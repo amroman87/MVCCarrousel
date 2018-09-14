@@ -21,7 +21,7 @@ namespace Carrousel1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
 
-            var builder = new ContainerBuilder();
+            var builder = new ContainerBuilder(); 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
             builder.RegisterInstance(new ImageFromXMLRepository()).As<IGetImagesRepository>();//ImageFromXMLRepository : IGetImagesRepository
