@@ -2,7 +2,7 @@
 {
     public interface IGetImagesService
     {
-        void getImages();
-        void getImageById(int id);
+        ImageList getImages();
+        Image getImageById(int id);
     }
 }

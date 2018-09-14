@@ -8,20 +8,22 @@ namespace Carrousel1.Services
 {
     public class GetImageService : IGetImagesService
     {
-        private IGetImagesService _dataAccesService;
+        private IGetImagesRepository _dataAccesService;
 
-        public GetImageService(IGetImagesService dataAccessService)
+       
+        public GetImageService(IGetImagesRepository dataAccessService)
         {
             this._dataAccesService = dataAccessService;
         }
-        public void getImageById(int id)
+        public Image getImageById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void getImages()
+        public ImageList getImages()
         {
-            throw new NotImplementedException();
+            var imageList = _dataAccesService.ReadImages();
+            return imageList;
         }
     }
 }

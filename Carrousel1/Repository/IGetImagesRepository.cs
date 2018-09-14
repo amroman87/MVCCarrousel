@@ -2,6 +2,6 @@
 {
     public interface IGetImagesRepository
     {
-        void ReadImagesFromSource();
+        ImageList ReadImages();
     }
 }

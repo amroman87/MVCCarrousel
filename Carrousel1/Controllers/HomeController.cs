@@ -10,26 +10,18 @@ namespace Carrousel1.Controllers
 {
     public class HomeController : Controller
     {
-        //private IGetImagesService _getImagesService;
-
-        //public HomeController(IGetImagesService getImagesServices)
-        //{
-        //    _getImagesService = getImagesServices;
-        //}
+        private IGetImagesService _getImagesService;
+      
+        public HomeController(IGetImagesService getImagesServices)
+        {
+            _getImagesService = getImagesServices;
+        }
         // GET: Carrousel
         public ActionResult Index()
         {
-            List<CarrouselModel> sliderimages = new List<CarrouselModel>();
-
-            sliderimages.Add(new CarrouselModel()
-                {
-                FilePath = "http://media.tuicontent.nl/B03/B030D8D22F741C34B50CD268B317E33C.jpg" }
-            );
-
-            sliderimages.Add(new CarrouselModel(){ FilePath = "http://media.tuicontent.nl/B03/B030D8D22F741C34B50CD268B317E33C.jpg" });
-
-            sliderimages.Add(new CarrouselModel(){ FilePath = "http://media.tuicontent.nl/B03/B030D8D22F741C34B50CD268B317E33C.jpg" });
-            return View(sliderimages);
+           var imageList = _getImagesService.getImages();           
+          
+           return View(imageList.Images);
 
           
         }
