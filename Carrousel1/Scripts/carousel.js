@@ -1,11 +1,11 @@
 ﻿
 $(document).ready(function () {
-    log(1, "Document ready");
+    SelfConsole.log("Document ready :");
     
 });
 
 $(document).on("click", ".carousel", function () {
-    log(1, "Carrousel Item clicked");
+    SelfConsole.debug("Carrousel Item clicked");
     if ($(event.target).is('.carousel-control-prev')) {
         return;
     } else if ($(event.target).is('.carousel-control-next')) {
@@ -23,20 +23,22 @@ $(document).on("click", ".carousel", function () {
 });
 
 function openImage(id) {   
-    log(1, "Opening Image");
+    SelfConsole.debug("Opening Image");
+    SelfConsole.info("Id " + id);
     var strMethodUrl = '@Url.Action("OriginalImageURL", "Home")';
     $.getJSON("Home/OriginalImageURL", { id: id }, receieveResponse);   
 }
 
 function receieveResponse(response) {
-    log(1, "Response received");
-    if (response !== null) {        
+    SelfConsole.debug( "Response received");
+    if (response !== null) {      
+        SelfConsole.info("URL: " + response);
             openModalWithImage(response);   
     }
 }
 
 function openModalWithImage(src) {
-    log(1, "Opening modal image");
+    SelfConsole.debug("Opening modal image");
     // Get the modal
     $("#myCarousel").carousel('pause');
     $("#modalImage").css("display", "block");
@@ -44,7 +46,7 @@ function openModalWithImage(src) {
 }
 
 $(document).on("click", "span", function () {
-    log(1, "Closing modal image");
+    SelfConsole.debug("Closing modal image");
     $("#modalImage").css("display", "none");
     $("#myCarousel").carousel('cycle');
 });

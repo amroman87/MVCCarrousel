@@ -1,18 +1,35 @@
-﻿function log(level, message) {
+﻿class SelfConsole {
+    static log(message) {
+        log(1, message);
+    }
+    static info(message) {
+        log(2, message);
+    }
+    static error(message) {
+        log(3, message);
+    }
+    static debug(message) {
+        log(4, message);
+    }
+}
+
+
+function log(level, message) {
 
     var levelText;
     if (level == 1) {
-        levelText = "Info";
+        levelText = "log";
          
     } else if (level == 2) {
-        levelText = "Warning";
+        levelText = "info";
     }
     else if (level == 3) {
-        levelText = "Critical";
+        levelText = "error";
     }
     
-    else {
-        levelText = "Undefined";
+    else if (level == 4)
+    {
+        levelText = "debug";
     }    
 
     var today = new Date();
