@@ -1,11 +1,7 @@
-﻿
-
-@{
+﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -15,7 +11,7 @@
     <script src="~/scripts/jquery-3.0.0.min.js"></script>
     <script src="~/scripts/bootstrap.min.js"></script>
     <script src="~/scripts/carousel.js"></script>
-
+    <script src="~/scripts/selfConsole.js"></script>
     <style>
         .carousel-inner img {
             width: 100%;
@@ -52,12 +48,36 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
-    </div>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
+    </div>   
+    <div id="modalImage" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="imgModal">     
+    </div>
+
+    <div id="consoleLog" class="mobileElement">
+        <table id="dtConsoleLog" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm">
+                        Level
+                        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                    </th>
+                    <th class="th-sm">
+                        Message
+                        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                    </th>
+                    <th class="th-sm">
+                        TimeSpam
+                        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>                                    
+                </tr>                
+            </tbody>
+            
+        </table>
     </div>
 
 </body>
