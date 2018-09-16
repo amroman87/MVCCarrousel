@@ -1,5 +1,4 @@
-﻿using HeiswayiNrird.Utility.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,7 +9,7 @@ namespace Carrousel1.Repository
 {
     public class ImageFromXMLRepository : IGetImagesRepository
     {
-        public ImageList ReadImages()
+        public List<Image> ReadImages()
         {
             ImageList result = null;
 
@@ -23,7 +22,7 @@ namespace Carrousel1.Repository
                 result = (ImageList)serializer.Deserialize(reader);
             }
             
-            return result;
+            return result.Images ;
         }
 
         

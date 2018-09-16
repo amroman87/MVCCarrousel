@@ -1,7 +1,9 @@
-﻿namespace Carrousel1.Repository
+﻿using System.Collections.Generic;
+
+namespace Carrousel1.Repository
 {
     public interface IGetImagesRepository
     {
-        ImageList ReadImages();
+        List<Image> ReadImages();
     }
 }

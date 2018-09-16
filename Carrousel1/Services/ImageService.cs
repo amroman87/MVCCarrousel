@@ -20,7 +20,7 @@ namespace Carrousel1.Services
             throw new NotImplementedException();
         }
 
-        public ImageList getImages()
+        public List<Image> getImages()
         {
             var imageList = _dataAccesService.ReadImages();
             return imageList;

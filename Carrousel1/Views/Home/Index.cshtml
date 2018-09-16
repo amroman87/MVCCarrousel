@@ -11,9 +11,11 @@
     <meta name="viewport" content="width=device-width" />
     <title>CarrouselWebApp</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/CSS/Carousel.css" rel="stylesheet" />
     <script src="~/scripts/jquery-3.0.0.min.js"></script>
     <script src="~/scripts/bootstrap.min.js"></script>
-    <script src="~/scripts/jquery.dataTables.min.js"></script>
+    <script src="~/scripts/carousel.js"></script>
+
     <style>
         .carousel-inner img {
             width: 100%;
@@ -23,30 +25,40 @@
 </head>
 <body>
     <div class="container py-4">
-        <div id="demo" class="carousel slide" data-ride="carousel">
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
-            </ul>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 @{int i = 0;}
                 @foreach (var item in Model)
                 {
                     i++;
                     var active = i == 1 ? "active" : "";
+                    var smalURI = @Url.Content(@item.SmallUri.ToString());
+                    var mediumURI = @Url.Content(@item.MediumUri.ToString());
+                    var largeURI = @Url.Content(@item.LargeUri.ToString());                
                     <div class="carousel-item @active">
-                        <img src="@Url.Content(@item.OriginalUri.ToString())" alt="">
+                        @*<img src="@Url.Content(@item.OriginalUri.ToString())" alt="">*@
+                        <picture>
+                            <source srcset=@largeURI media="(min-width: 1024px)">
+                            <source srcset=@mediumURI media="(min-width: 680px)">
+                            <img class="carousel second-slide" srcset=@smalURI alt=@item.Id.ToString()>
+                        </picture>
                     </div>
                 }
             </div>
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
+            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
     </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="imgModal">     
+    </div>
+
 </body>
 </html>  

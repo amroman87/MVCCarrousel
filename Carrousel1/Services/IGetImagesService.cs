@@ -1,8 +1,10 @@
-﻿namespace Carrousel1.Services
+﻿using System.Collections.Generic;
+
+namespace Carrousel1.Services
 {
     public interface IGetImagesService
     {
-        ImageList getImages();
+        List<Image> getImages();
         Image getImageById(int id);
     }
 }

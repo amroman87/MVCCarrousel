@@ -17,7 +17,7 @@ namespace Carrousel1
 
     public class Image
     {
-        [XmlElement ("id")]
+        [XmlAttribute("id")]
         public int Id { get; set; }
 
         #region small
