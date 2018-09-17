@@ -1,4 +1,7 @@
 ﻿
+.carousel-inner {
+    height: 50vh;
+}
 
 .carousel-inner > .item > img {
     position: absolute;
